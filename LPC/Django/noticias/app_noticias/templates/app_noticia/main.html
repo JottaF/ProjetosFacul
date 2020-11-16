@@ -1,0 +1,110 @@
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Saitezão</title>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <style>
+
+        .navbar {
+            justify-content: space-between;
+        }
+
+        body {
+            padding-top: 5rem;
+        }
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .tags {
+          max-width: 400px;
+        }
+
+        .col-md-4 {
+          max-width: 350px;
+        }
+
+        .col-md-4 .card-img a img {
+          filter: opacity(0%);
+          transition: opacity 0.2s;
+          
+          -webkit-transition:filter 0.5s ease-out;
+          -moz-transition:filter 0.5s ease-out;
+          -o-transition:filter 0.5s ease-out;
+          -ms-transition:filter 0.5s ease-out;
+        }
+
+        .col-md-4:hover .card-img a img {
+          filter: opacity(100%);
+
+          filter:alpha(opacity=100);
+          -moz-opacity:1;
+          opacity:1;
+        }
+
+        a:hover {
+          text-decoration: none!important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            position: absolute;
+            transform: translate3d(5px, 28px, 0px); /* distancia entre menu e btn */
+            top: 0px;
+            left: 0px;
+            will-change: transform;
+        }
+    </style>
+
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <ul class="nav">
+        <li>
+          <a class="navbar-brand" href="{% url 'resumo' %}">Saitezão</a>
+        </li>
+        
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'minhasNoticias' %}">Minhas notícias</a>
+              <a class="dropdown-item" href="{% url 'adicionarNoticia' %}">Postar notícia</a>
+              <a class="dropdown-item" href="{% url 'tag' %}">Adicionar Tag</a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="login">
+          {% if not user.is_authenticated %}
+              <a class="btn btn-primary" href="{% url 'login' %}">Entrar</a>
+          {% else %}
+              <a class="btn btn-danger" href="{% url 'logout' %}">Sair</a>
+          {% endif %}
+      </div>
+    </nav>
+
+  <main role="main" class="container">
+
+    {% block container %}
+    {% endblock %}
+
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+</html>

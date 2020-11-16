@@ -1,0 +1,10 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+    
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Tag adicionada!</h4>
+        <p class="mb-0"><a href="{% url 'tag' %}">Adicionar outra tag.</a></p>
+    </div>
+    
+{% endblock %}

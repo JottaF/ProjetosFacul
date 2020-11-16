@@ -1,0 +1,8 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+    <h1> {{ noticia.titulo }} </h1>
+    <small> {{ noticia.autor }} </small>
+    <hr>
+    <p style="text-align: justify; max-width: 1000px;"> {{ noticia.descricao }} </p>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+
+    <form class="form-signin" action="tags/adicionar" method="POST" 
+    style="max-width: 400px; width: 100%; position: fixed; top: 30%; left: 35%;">
+        {% csrf_token %}
+        <label for="id_nome" class="sr-only">Login</label>
+        <input type="text" id="id_tag" name="nome"
+         class="form-control" placeholder="Nome da tag" required autofocus>
+        <label for="id_slug" class="sr-only">Senha</label>
+        <input type="text" name="slug" id="id_slug" class="form-control" placeholder="Slug da tag" required>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Criar</button>
+    </form>
+    
+{% endblock %}

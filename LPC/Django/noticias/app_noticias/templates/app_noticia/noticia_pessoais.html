@@ -1,0 +1,38 @@
+{% extends "app_noticia/main.html" %}
+{% block container %}
+<a class="btn btn-info btn-lg btn-block" href="{% url 'adicionarNoticia' %}" type="button">Adicionar notícia</a>
+<form action="." method="POST"></form>
+    <div class="row">
+        {% for i in noticias %}
+            <div class="col-md-4" style="color: #007bff;">
+                <div class="card mb-4 shadow-sm p-3">
+                    <a href="/noticia/{{ i.id }}">
+                        <h4>{{ i.titulo }}</h4>
+                    </a>
+                        <div class="card-body">
+                        <p class="card-text" style="text-align: justify;"> {{ i.resumo }} </p>
+                            <div class="d-flex justify-content-space-between">
+                                <ul class="nav"> <strong>Tags:</strong> 
+                                    {% for j in i.tags.all %}
+                                        <li class="nav-item" style="margin-right: 1px; margin-left: 3px; border-bottom: 1px double;">
+                                            {{ j }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="card-img" >
+                                <a href="/minhasNoticias/editar/{{ i.id }}">
+                                    <img src="https://www.flaticon.com/svg/static/icons/svg/1263/1263925.svg" title="Editar notícia" id="noticia_{{ i.pk }}" onclick="delNoticia('noticia_{{ i.pk }}')" alt="Apagar notícia" width="30px" style="position: relative; left: 85%; top: 30px;">
+                                </a>
+                                <a href="/minhasNoticias/apagar/{{ i.id }}">
+                                    <img src="https://www.flaticon.com/svg/static/icons/svg/1263/1263922.svg" title="Apagar notícia" id="noticia_{{ i.pk }}" onclick="delNoticia('noticia_{{ i.pk }}')" alt="Apagar notícia" width="30px" style="position: relative; left: 85%; top: 30px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+    
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Noticia postada!</h4>
+        <hr>
+        <ul class="nav">
+            <a class="btn btn-info" href="{% url 'adicionarNoticia' %}" style="margin-right: 3px;">Adicionar outra Notícia.</a>
+            <a class="btn btn-info" href="{% url 'minhasNoticias' %}">Ver minhas notícias.</a>
+        </ul>
+    </div>
+    
+{% endblock %}

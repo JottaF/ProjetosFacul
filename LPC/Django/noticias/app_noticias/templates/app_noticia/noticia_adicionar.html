@@ -1,0 +1,49 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+    
+    <form action="noticia/adicionar" method="POST">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <div class="form form-group col-md-6">
+            <div class="tags">
+                <label>Tags</label> <br>
+                {% for i in tags %}
+                    <div class="form-check form-check-inline" id="teste id div" ::marker>
+                        <input class="form-check-input" type="checkbox" name="tags" id="idt" value="{{ i.pk }}">
+                        <label class="form-check-label" for="nada">{{ i.nome }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <hr>
+            <label for="id_titulo">Titulo</label>
+            <input class="form-control" id="id_titulo" name="titulo" type="text" autocomplete="off" placeholder="Título da notícia" required>
+
+            <hr>
+            <label for="id_resumo">Resumo</label>
+            <textarea class="form-control" name="resumo" id="id_resumo" rows="3" maxlength="500" required></textarea>
+
+            <hr>
+            <label for="id_descricao">Descrição</label>
+            <textarea class="form-control" name="descricao" id="id_descricao" rows="9" required></textarea>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Postar</button>
+        </div>
+    </form>
+
+    <script>
+        a = document.getElementsByClassName('form-check form-check-inline');
+        for (var i = 0; i < a.length; i++) {
+            a[i].id = 'id_tags_'+i;
+            b = document.getElementById('idt')
+            b.setAttribute('id', 'id_tags_'+i);
+            a[i].children[1].attributes.for.value = 'id_tags_'+i;
+
+        };
+
+
+    </script>
+    
+{% endblock %}

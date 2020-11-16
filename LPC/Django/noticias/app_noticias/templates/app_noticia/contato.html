@@ -1,0 +1,8 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+{% endblock %}

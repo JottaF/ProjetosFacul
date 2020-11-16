@@ -1,0 +1,10 @@
+{% extends "app_noticia/main.html" %}
+
+{% block container %}
+
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Notícia removida com sucesso!</h4>
+        <a href="{% url 'minhasNoticias' %}" class="btn btn-info">Voltar para minhas notícias</a>
+    </div>
+
+{% endblock %}

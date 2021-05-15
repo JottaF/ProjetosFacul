@@ -1,0 +1,4 @@
+#Sat May 15 11:46:49 BRT 2021
+base.0=C\:\\Users\\Jotta\\Documents\\Facul\\D.S.D.M\\atividade_imc\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
